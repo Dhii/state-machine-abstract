@@ -31,7 +31,7 @@ trait StateMachineAwareTrait
      */
     protected function _getStateMachine()
     {
-        // todo
+        return $this->stateMachine;
     }
 
     /**
@@ -43,7 +43,16 @@ trait StateMachineAwareTrait
      */
     protected function _setStateMachine($stateMachine)
     {
-        // todo
+        if ($stateMachine !== null && !($stateMachine instanceof StateMachineInterface)) {
+            throw $this->_createInvalidArgumentException(
+                $this->__('Argument is not a valid state machine instance or null.'),
+                null,
+                null,
+                $stateMachine
+            );
+        }
+
+        $this->stateMachine = $stateMachine;
     }
 
     /**
