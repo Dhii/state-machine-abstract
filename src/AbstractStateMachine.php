@@ -28,7 +28,16 @@ abstract class AbstractStateMachine
      */
     protected function _transition($transition)
     {
-        // todo
+        if (!$this->_canTransition($transition)) {
+            throw $this->_createCouldNotTransitionException(
+                $this->__('Cannot apply transition "%s"', $transition),
+                null,
+                null,
+                $transition
+            );
+        }
+
+        return $this->_applyTransition($transition);
     }
 
     /**
