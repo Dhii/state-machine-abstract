@@ -97,12 +97,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/machine-state-machine-interface.git",
-                "reference": "622bdc9765e99c1e6129560151bb91814eda5621"
+                "reference": "a8800bbec7d191fb1bf0bde4ef6fa82fff7c2801"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/machine-state-machine-interface/zipball/622bdc9765e99c1e6129560151bb91814eda5621",
-                "reference": "622bdc9765e99c1e6129560151bb91814eda5621",
+                "url": "https://api.github.com/repos/Dhii/machine-state-machine-interface/zipball/a8800bbec7d191fb1bf0bde4ef6fa82fff7c2801",
+                "reference": "a8800bbec7d191fb1bf0bde4ef6fa82fff7c2801",
                 "shasum": ""
             },
             "require": {
@@ -134,7 +134,7 @@
                 }
             ],
             "description": "Interfaces for state machines.",
-            "time": "2017-09-28 11:31:56"
+            "time": "2017-09-28 11:47:00"
         },
         {
             "name": "dhii/stringable-interface",
