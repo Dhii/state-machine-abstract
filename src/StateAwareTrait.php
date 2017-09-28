@@ -31,7 +31,7 @@ trait StateAwareTrait
      */
     protected function _getState()
     {
-        // todo
+        return $this->state;
     }
 
     /**
@@ -43,7 +43,16 @@ trait StateAwareTrait
      */
     protected function _setState($state)
     {
-        // todo
+        if ($state !== null && !is_string($state) && !($state instanceof Stringable)) {
+            throw $this->_createInvalidArgumentException(
+                $this->__('Argument is not a valid state or null.'),
+                null,
+                null,
+                $state
+            );
+        }
+
+        $this->state = $state;
     }
 
     /**
