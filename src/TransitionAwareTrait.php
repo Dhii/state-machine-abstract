@@ -31,7 +31,7 @@ trait TransitionAwareTrait
      */
     protected function _getTransition()
     {
-        // todo
+        return $this->transition;
     }
 
     /**
@@ -43,7 +43,16 @@ trait TransitionAwareTrait
      */
     protected function _setTransition($transition)
     {
-        // todo
+        if ($transition !== null && !is_string($transition) && !($transition instanceof Stringable)) {
+            throw $this->_createInvalidArgumentException(
+                $this->__('Argument is not a valid transition or null.'),
+                null,
+                null,
+                $transition
+            );
+        }
+
+        $this->transition = $transition;
     }
 
     /**
