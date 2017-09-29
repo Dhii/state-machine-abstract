@@ -34,7 +34,7 @@ class StateAwareTraitTest extends TestCase
         $mock = $this->getMockForTrait(static::TEST_SUBJECT_CLASSNAME);
 
         $mock->method('_createInvalidArgumentException')->willReturnCallback(
-            function() {
+            function () {
                 return new InvalidArgumentException();
             }
         );
