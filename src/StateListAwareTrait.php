@@ -12,7 +12,7 @@ use Traversable;
  *
  * @since [*next-version*]
  */
-trait StatesListAwareTrait
+trait StateListAwareTrait
 {
     /**
      * The states associated with this instance.

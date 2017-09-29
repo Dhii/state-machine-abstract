@@ -8,18 +8,18 @@ use PHPUnit_Framework_MockObject_MockObject;
 use Xpmock\TestCase;
 
 /**
- * Tests {@see Dhii\State\StatesListAwareTrait}.
+ * Tests {@see Dhii\State\StateListAwareTrait}.
  *
  * @since [*next-version*]
  */
-class StatesListAwareTraitTest extends TestCase
+class StateListAwareTraitTest extends TestCase
 {
     /**
      * The class name of the test subject.
      *
      * @since [*next-version*]
      */
-    const TEST_SUBJECT_CLASSNAME = 'Dhii\State\StatesListAwareTrait';
+    const TEST_SUBJECT_CLASSNAME = 'Dhii\State\StateListAwareTrait';
 
     /**
      * Creates a new instance of the test subject.
@@ -96,7 +96,7 @@ class StatesListAwareTraitTest extends TestCase
     {
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
-        $state = uniqid('state-');
+        $state   = uniqid('state-');
 
         $reflect->_addState($state);
 
@@ -114,8 +114,8 @@ class StatesListAwareTraitTest extends TestCase
     {
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
-        $key = uniqid('state-');
-        $state = $this->createStringable($key);
+        $key     = uniqid('state-');
+        $state   = $this->createStringable($key);
 
         $reflect->_addState($state);
 
@@ -146,7 +146,7 @@ class StatesListAwareTraitTest extends TestCase
         $subject = $this->createInstance(['_addState']);
 
         $reflect = $this->reflect($subject);
-        $states = [
+        $states  = [
             uniqid('state-'),
             uniqid('state-'),
             $this->createStringable(uniqid('state-')),
@@ -186,7 +186,7 @@ class StatesListAwareTraitTest extends TestCase
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
 
-        $key = uniqid('state-');
+        $key   = uniqid('state-');
         $state = $this->createStringable($key);
 
         $reflect->_addState($state);
@@ -261,7 +261,7 @@ class StatesListAwareTraitTest extends TestCase
                 ->method('_createInvalidArgumentException')
                 ->with($this->isType('string'))
                 ->willReturnCallback(
-                    function ($message) {
+                    function($message) {
                         return new Exception($message);
                     }
                 );
