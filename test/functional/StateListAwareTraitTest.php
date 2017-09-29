@@ -93,6 +93,25 @@ class StateListAwareTraitTest extends TestCase
     }
 
     /**
+     * Tests the state key getter method with a stringable state instance.
+     *
+     * @since [*next-version*]
+     */
+    public function testGetStateKeyStringable()
+    {
+        $subject = $this->createInstance();
+        $reflect = $this->reflect($subject);
+
+        $state = $this->createStringable($key = uniqid('state-'));
+
+        $this->assertEquals(
+            $key,
+            $reflect->_getStateKey($state),
+            'Retrieved state key and key of given state instance are not the same.'
+        );
+    }
+
+    /**
      * Tests the state adder and getter methods to ensure that correct state adding and retrieval.
      *
      * @since [*next-version*]
