@@ -73,6 +73,11 @@ class StateListAwareTraitTest extends TestCase
         );
     }
 
+    /**
+     * Tests the state key getter method.
+     *
+     * @since [*next-version*]
+     */
     public function testGetStateKey()
     {
         $subject = $this->createInstance();
