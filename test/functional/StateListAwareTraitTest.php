@@ -120,7 +120,7 @@ class StateListAwareTraitTest extends TestCase
     {
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
-        $state   = uniqid('state-');
+        $state = uniqid('state-');
 
         $reflect->_addState($state);
 
@@ -138,8 +138,8 @@ class StateListAwareTraitTest extends TestCase
     {
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
-        $key     = uniqid('state-');
-        $state   = $this->createStringable($key);
+        $key = uniqid('state-');
+        $state = $this->createStringable($key);
 
         $reflect->_addState($state);
 
@@ -170,7 +170,7 @@ class StateListAwareTraitTest extends TestCase
         $subject = $this->createInstance(['_addState']);
 
         $reflect = $this->reflect($subject);
-        $states  = [
+        $states = [
             uniqid('state-'),
             uniqid('state-'),
             $this->createStringable(uniqid('state-')),
@@ -210,7 +210,7 @@ class StateListAwareTraitTest extends TestCase
         $subject = $this->createInstance();
         $reflect = $this->reflect($subject);
 
-        $key   = uniqid('state-');
+        $key = uniqid('state-');
         $state = $this->createStringable($key);
 
         $reflect->_addState($state);
@@ -285,7 +285,7 @@ class StateListAwareTraitTest extends TestCase
                 ->method('_createInvalidArgumentException')
                 ->with($this->isType('string'))
                 ->willReturnCallback(
-                    function($message) {
+                    function ($message) {
                         return new Exception($message);
                     }
                 );
