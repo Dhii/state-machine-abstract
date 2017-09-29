@@ -88,7 +88,7 @@ class StateListAwareTraitTest extends TestCase
         $this->assertEquals(
             $state,
             $reflect->_getStateKey($state),
-            'State key and given state string are not the same.'
+            'Retrieved state key and given state string are not the same.'
         );
     }
 
@@ -136,7 +136,7 @@ class StateListAwareTraitTest extends TestCase
         $this->assertEquals(
             $state,
             $reflect->_getState($state),
-            'State retrieved by instance and added states are not the same.'
+            'State retrieved by instance and added state are not the same.'
         );
     }
 
