@@ -32,7 +32,9 @@ trait StatesListAwareTrait
      */
     protected function _getStates()
     {
-
+        return $this->states === null
+            ? $this->states = []
+            : $this->states;
     }
 
     /**
@@ -46,7 +48,7 @@ trait StatesListAwareTrait
      */
     protected function _getStateKey($state)
     {
-
+        return (string) $state;
     }
 
     /**
@@ -60,7 +62,11 @@ trait StatesListAwareTrait
      */
     protected function _getState($key)
     {
+        $sKey = (string) $key;
 
+        return array_key_exists($sKey, $this->states)
+            ? $this->states[$sKey]
+            : null;
     }
 
     /**
@@ -74,7 +80,7 @@ trait StatesListAwareTrait
      */
     protected function _hasState($state)
     {
-
+        return array_key_exists($this->_getStateKey($state), $this->_getStates());
     }
 
     /**
@@ -86,7 +92,16 @@ trait StatesListAwareTrait
      */
     protected function _addState($state)
     {
+        if (!is_string($state) && !($state instanceof Stringable)) {
+            throw $this->_createInvalidArgumentException(
+                $this->__('Argument is not a valid state.'),
+                null,
+                null,
+                $state
+            );
+        }
 
+        $this->states[(string) $state] = $state;
     }
 
     /**
@@ -98,7 +113,9 @@ trait StatesListAwareTrait
      */
     protected function _addStates($states)
     {
-
+        foreach ($states as $_state) {
+            $this->_addState($_state);
+        }
     }
 
     /**
@@ -110,7 +127,8 @@ trait StatesListAwareTrait
      */
     protected function _setStates($states)
     {
-
+        $this->_resetStates();
+        $this->_addStates($states);
     }
 
     /**
@@ -122,7 +140,9 @@ trait StatesListAwareTrait
      */
     protected function _removeState($state)
     {
+        $key = $this->_getStateKey($state);
 
+        unset($this->states[$key]);
     }
 
     /**
@@ -132,7 +152,7 @@ trait StatesListAwareTrait
      */
     protected function _resetStates()
     {
-
+        $this->states = [];
     }
 
     /**
