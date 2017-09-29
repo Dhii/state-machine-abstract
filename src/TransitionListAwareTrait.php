@@ -32,7 +32,9 @@ trait TransitionListAwareTrait
      */
     protected function _getTransitions()
     {
-        // todo
+        return $this->transitions === null
+            ? $this->transitions = []
+            : $this->transitions;
     }
 
     /**
@@ -46,7 +48,7 @@ trait TransitionListAwareTrait
      */
     protected function _getTransitionKey($transition)
     {
-        // todo
+        return (string) $transition;
     }
 
     /**
@@ -60,7 +62,11 @@ trait TransitionListAwareTrait
      */
     protected function _getTransition($key)
     {
-        // todo
+        $sKey = (string) $key;
+
+        return array_key_exists($sKey, $this->transitions)
+            ? $this->transitions[$sKey]
+            : null;
     }
 
     /**
@@ -74,7 +80,7 @@ trait TransitionListAwareTrait
      */
     protected function _hasTransition($transition)
     {
-        // todo
+        return array_key_exists($this->_getTransitionKey($transition), $this->_getTransitions());
     }
 
     /**
@@ -86,7 +92,16 @@ trait TransitionListAwareTrait
      */
     protected function _addTransition($transition)
     {
-        // todo
+        if (!is_string($transition) && !($transition instanceof Stringable)) {
+            throw $this->_createInvalidArgumentException(
+                $this->__('Argument is not a valid transition.'),
+                null,
+                null,
+                $transition
+            );
+        }
+
+        $this->transitions[(string) $transition] = $transition;
     }
 
     /**
@@ -98,7 +113,9 @@ trait TransitionListAwareTrait
      */
     protected function _addTransitions($transitions)
     {
-        // todo
+        foreach ($transitions as $_transition) {
+            $this->_addTransition($_transition);
+        }
     }
 
     /**
@@ -110,7 +127,8 @@ trait TransitionListAwareTrait
      */
     protected function _setTransitions($transitions)
     {
-        // todo
+        $this->_resetTransitions();
+        $this->_addTransitions($transitions);
     }
 
     /**
@@ -122,7 +140,9 @@ trait TransitionListAwareTrait
      */
     protected function _removeTransition($transition)
     {
-        // todo
+        $key = $this->_getTransitionKey($transition);
+
+        unset($this->transitions[$key]);
     }
 
     /**
@@ -132,7 +152,7 @@ trait TransitionListAwareTrait
      */
     protected function _resetTransitions()
     {
-        // todo
+        $this->transitions = [];
     }
 
     /**
