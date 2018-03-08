@@ -30,8 +30,5 @@
     "scripts": {
         "test": "phpunit",
         "csfix": "php-cs-fixer fix -vvv"
-    },
-    "config": {
-        "disable-tls": true
     }
 }
