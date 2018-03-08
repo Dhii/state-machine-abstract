@@ -45,7 +45,7 @@ trait StateAwareTrait
     {
         if ($state !== null && !is_string($state) && !($state instanceof Stringable)) {
             throw $this->_createInvalidArgumentException(
-                $this->__('Argument is not a valid state or null.'),
+                $this->__('Argument is not a valid state'),
                 null,
                 null,
                 $state

@@ -45,7 +45,7 @@ trait StateMachineAwareTrait
     {
         if ($stateMachine !== null && !($stateMachine instanceof StateMachineInterface)) {
             throw $this->_createInvalidArgumentException(
-                $this->__('Argument is not a valid state machine instance or null.'),
+                $this->__('Argument is not a valid state machine instance'),
                 null,
                 null,
                 $stateMachine

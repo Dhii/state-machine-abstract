@@ -45,7 +45,7 @@ trait TransitionAwareTrait
     {
         if ($transition !== null && !is_string($transition) && !($transition instanceof Stringable)) {
             throw $this->_createInvalidArgumentException(
-                $this->__('Argument is not a valid transition or null.'),
+                $this->__('Argument is not a valid transition'),
                 null,
                 null,
                 $transition
