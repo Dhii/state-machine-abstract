@@ -27,6 +27,12 @@
             "Dhii\\State\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Dhii\\State\\UnitTest": "test/unit",
+            "Dhii\\State\\FuncTest": "test/functional"
+        }
+    },
     "scripts": {
         "test": "phpunit",
         "csfix": "php-cs-fixer fix -vvv"
